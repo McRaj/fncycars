@@ -1,0 +1,23 @@
+<div class="cars" *ngFor="let car of cars">
+
+  <div class="car">
+
+    <div class="photo">
+      <img class="image responsive" src="{{car.image}}">
+    </div>
+
+    <div class="description">
+      <div class="name">{{car.year + " " + car.name}}</div>
+      <div class="make">{{car.make}}</div>
+      <div class="model">{{car.model}}</div>
+      <div class="availability">{{car.availability}}</div>
+      <div class="button">
+        <button>Buy now</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<div>{{errorMessage}}</div>
+

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: 'https://my-json-server.typicode.com/McRaj/json-faker-directory/'
 };
