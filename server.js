@@ -23,7 +23,7 @@ app.route('/api/cars/:sort?').get((req, res) => {
 			    	make: "Nissan", 
 			    	model: "GTR", 
 			    	year: 2009,
-			    	available: "In Dealership"
+			    	available: "Out of Stock"
 			    },
 			    {
 			    	id: 3, 
@@ -77,20 +77,25 @@ app.route('/api/cars/:sort?').get((req, res) => {
 			    	make: "Tesla", 
 			    	model: "Roadster", 
 			    	year: 2020, 
-			    	available: "In Dealership"
+			    	available: "Unavailable"
+			    },
+			     {
+			    	id: 9, 
+			    	image:"assets/r8.png", 
+			    	name: "Audi R8", 
+			    	make: "Audi", 
+			    	model: "R8 Coupe", 
+			    	year: 2010, 
+			    	available: "Out of Stock"
 			    }];
 
     if(req.params['sort'] === 'asc') {
 		res.send(cars.sort((a,b) => (a.name > b.name) ? 1 : ((b.name < a.name) ? -1 : 0))); 
     } else if (req.params['sort'] === 'dsc') {
 		res.send(cars.sort((a,b) => (a.name < b.name) ? 1 : ((b.name > a.name) ? -1 : 0))); 
+    } else  if (req.params['sort'] === 'available'){
+    	res.send(cars.sort((a,b) => (a.available > b.available) ? 1 : ((b.available < a.available) ? -1 : 0))); 
     } else {
     	res.send(cars);
-    } 
-
+    }
 });
-/*
-app.route('/api/cars/:name').get((req, res) => {
-  const requestedCarName = req.params['name'];
-  res.send({ name: requestedCarName });
-}); */

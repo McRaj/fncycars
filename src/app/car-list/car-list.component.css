@@ -54,7 +54,7 @@
 
 }
 
-.button-primary {
+.availability{
   margin-top: auto;
 }
 
@@ -82,5 +82,10 @@
   color: #2db289;
   align-items: center;
   padding: 0.5em;
+}
+
+.unavailable {
+  color: #ff6f6b;
+  padding:1em 0 1em 0;
 }
 

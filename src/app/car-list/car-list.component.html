@@ -6,11 +6,10 @@
 
   <div class="sort-item">
     <input type="radio" name="sorting" value="dsc" (change)="radioChangeHandler($event)">Name Descending
-
   </div>
 
   <div class="sort-item">
-    <input type="radio" name="sorting" value="availability" >Availability
+    <input type="radio" name="sorting" value="available" (change)="radioChangeHandler($event)" >Availability
   </div>
 
 </div>
@@ -28,10 +27,16 @@
       <div class="name">{{car.year + " " + car.name}}</div>
       <div class="make">{{car.make}}</div>
       <div class="model">{{car.model}}</div>
-      <div class="availability">{{car.availability}}</div>
-      <div class="button-primary">
-        <button>Buy now</button>
+      <div class="availability" *ngIf="car.available=='In Dealership'">
+        <div class="button-primary">
+          <button>Buy now</button>
+        </div>
       </div>
+
+      <div class="availability" *ngIf="car.available!='In Dealership'">
+        <div class="unavailable">{{car.available}}</div>
+      </div>
+
     </div>
 
   </div>
