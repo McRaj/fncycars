@@ -13,8 +13,15 @@ export class CarListComponent implements OnInit {
   constructor(private _carService: CarService ) { }
 
   ngOnInit() {
-    this._carService.getCars()
+    this.getCars();
+  }
+  getCars(sort?: string) {
+    this._carService.getCars(sort)
       .subscribe(data => this.cars = data,
-      error => this.errorMessages = error);
+        error => this.errorMessages = error);
+  }
+
+  radioChangeHandler(event: any) {
+    this.getCars(event.target.value);
   }
 }

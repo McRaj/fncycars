@@ -1,3 +1,21 @@
+<div class="sort-container">
+
+  <div class="sort-item">
+    <input type="radio" name="sorting" value="asc" (change)="radioChangeHandler($event)">Name Ascending
+  </div>
+
+  <div class="sort-item">
+    <input type="radio" name="sorting" value="dsc" (change)="radioChangeHandler($event)">Name Descending
+
+  </div>
+
+  <div class="sort-item">
+    <input type="radio" name="sorting" value="availability" >Availability
+  </div>
+
+</div>
+
+
 <div class="cars" *ngFor="let car of cars">
 
   <div class="car">
@@ -11,7 +29,7 @@
       <div class="make">{{car.make}}</div>
       <div class="model">{{car.model}}</div>
       <div class="availability">{{car.availability}}</div>
-      <div class="button">
+      <div class="button-primary">
         <button>Buy now</button>
       </div>
     </div>

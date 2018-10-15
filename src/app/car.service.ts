@@ -10,8 +10,8 @@ export class CarService {
   private baseUrl = environment.baseUrl;
   private _url = this.baseUrl + 'cars/';
   constructor(private http: HttpClient) { }
-  getCars(): Observable<Car[]> {
-    return this.http.get<Car[]>(this._url).pipe(tap(data => console.log(data)), catchError(this.errorHandler));
+  getCars(sort?: string): Observable<Car[]> {
+    return this.http.get<Car[]>(this._url + sort).pipe(tap(data => console.log(data)), catchError(this.errorHandler));
   }
   errorHandler(error: HttpErrorResponse) {
     return observableThrowError(error.message || 'Server Error');

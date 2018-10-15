@@ -5,7 +5,7 @@ app.listen(8000, () => {
   console.log('Server started!');
 });
 
-app.route('/api/cars').get((req, res) => {
+app.route('/api/cars/:sort?').get((req, res) => {
 
 	let cars = [{
 			    	id: 1, 
@@ -49,7 +49,7 @@ app.route('/api/cars').get((req, res) => {
 			    	name: "Chevrolet Corvette Z06", 
 			    	make: "Chevrolet", 
 			    	model: "Corvette", 
-			    	year: 2006, 
+			    	year: 2016, 
 			    	available: "In Dealership"
 			    },
 			    {
@@ -80,9 +80,13 @@ app.route('/api/cars').get((req, res) => {
 			    	available: "In Dealership"
 			    }];
 
-	cars = cars.sort((a,b) => (a.name > b.name) ? 1 : ((b.name < a.name) ? -1 : 0)); 
-
-	res.send(cars);
+    if(req.params['sort'] === 'asc') {
+		res.send(cars.sort((a,b) => (a.name > b.name) ? 1 : ((b.name < a.name) ? -1 : 0))); 
+    } else if (req.params['sort'] === 'dsc') {
+		res.send(cars.sort((a,b) => (a.name < b.name) ? 1 : ((b.name > a.name) ? -1 : 0))); 
+    } else {
+    	res.send(cars);
+    } 
 
 });
 /*
