@@ -31,7 +31,7 @@ app.route('/api/cars/:sort?').get((req, res) => {
 			    	name: "Lexus LFA", 
 			    	make: "Lexus", 
 			    	model: "LFA", 
-			    	year: 2008, 
+			    	year: 2012, 
 			    	available: "In Dealership"
     			},
     			{
@@ -87,6 +87,15 @@ app.route('/api/cars/:sort?').get((req, res) => {
 			    	model: "R8 Coupe", 
 			    	year: 2010, 
 			    	available: "Out of Stock"
+			    },
+			    {
+			    	id: 10, 
+			    	image:"assets/m8.png", 
+			    	name: "BMW M850i", 
+			    	make: "BMW", 
+			    	model: "M850i Coupe", 
+			    	year: 2018, 
+			    	available: "In Dealership"
 			    }];
 
     if(req.params['sort'] === 'asc') {
